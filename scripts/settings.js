@@ -15,12 +15,14 @@ Weaknesses: {{weaknesses}}
 Resistances: {{resistances}}
 Immunities: {{immunities}}
 Notable Abilities: {{abilities}}
+Notes/Description: {{notes}}
 
 Generate 2-3 pieces of FALSE information that:
 1. Sound believable and authoritative
 2. Could lead to poor tactical decisions
 3. Invert or twist the actual facts (e.g., if immune to fire, claim it's weak to fire)
 4. Match the tone of Pathfinder 2e lore
+5. Consider the creature's notes/description to add flavor to your misinformation
 
 Format your response as bullet points a GM could read aloud.
 Do not include any meta-commentary or disclaimers.

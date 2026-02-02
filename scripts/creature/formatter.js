@@ -18,7 +18,8 @@ export function formatCreatureForPrompt(creatureData) {
       weaknesses: 'none known',
       resistances: 'none known',
       immunities: 'none known',
-      abilities: 'none known'
+      abilities: 'none known',
+      notes: 'none'
     };
   }
 
@@ -29,7 +30,8 @@ export function formatCreatureForPrompt(creatureData) {
     weaknesses: formatWeaknesses(creatureData.defenses?.weaknesses),
     resistances: formatResistances(creatureData.defenses?.resistances),
     immunities: formatImmunities(creatureData.defenses?.immunities),
-    abilities: formatAbilities(creatureData.abilities, creatureData.offenses?.attacks)
+    abilities: formatAbilities(creatureData.abilities, creatureData.offenses?.attacks),
+    notes: creatureData.description || 'none'
   };
 }
 
