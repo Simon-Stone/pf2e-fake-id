@@ -21,7 +21,13 @@
       },
       "PromptTemplate": {
         "Name": "Prompt Template",
-        "Hint": "The prompt template used to generate fake information. Use {{name}}, {{level}}, {{traits}}, {{weaknesses}}, {{resistances}}, {{immunities}}, {{abilities}}, {{notes}} as placeholders."
+        "Button": "Configure Prompt Template",
+        "Hint": "The prompt template used to generate fake information. Use {{name}}, {{level}}, {{traits}}, {{weaknesses}}, {{resistances}}, {{immunities}}, {{abilities}}, {{notes}} as placeholders.",
+        "Label": "Prompt Template",
+        "AvailableVariables": "Available Variables:",
+        "Save": "Save Template",
+        "Reset": "Reset to Default",
+        "Saved": "Prompt template saved successfully."
       }
     },
     

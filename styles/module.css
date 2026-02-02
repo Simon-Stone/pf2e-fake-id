@@ -447,6 +447,93 @@
   margin: 0;
 }
 
+/* Prompt Template Configuration Form */
+.pf2e-fake-id-prompt-config {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.pf2e-fake-id-prompt-config .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pf2e-fake-id-prompt-config label {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.pf2e-fake-id-prompt-config .notes {
+  font-size: 0.9em;
+  color: var(--color-text-dark-secondary);
+  margin: 0;
+}
+
+.pf2e-fake-id-prompt-config textarea {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  padding: 8px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 4px;
+  background: var(--color-bg-input);
+  color: var(--color-text-dark-primary);
+  resize: vertical;
+  min-height: 300px;
+}
+
+.pf2e-fake-id-prompt-config textarea:focus {
+  outline: none;
+  border-color: var(--color-border-highlight);
+  box-shadow: 0 0 4px var(--color-shadow-highlight);
+}
+
+.pf2e-fake-id-prompt-config .sheet-footer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-dark);
+}
+
+.pf2e-fake-id-prompt-config button {
+  padding: 6px 16px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 4px;
+  background: var(--color-bg-btn);
+  color: var(--color-text-light-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95em;
+}
+
+.pf2e-fake-id-prompt-config button:hover {
+  background: var(--color-bg-btn-hover);
+  border-color: var(--color-border-highlight);
+}
+
+.pf2e-fake-id-prompt-config button[type="submit"] {
+  background: var(--color-bg-option);
+  border-color: var(--color-border-highlight-alt);
+}
+
+.pf2e-fake-id-prompt-config button[type="submit"]:hover {
+  background: var(--color-bg-option-hover);
+}
+
+.pf2e-fake-id-prompt-config code {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85em;
+}
+
 /* Responsive: Hide button text on smaller screens, show icon only */
 @media (max-width: 900px) {
   .pf2e-fake-id-sheet-button span {

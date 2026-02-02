@@ -73,18 +73,64 @@ export function registerSettings() {
     default: true,
   });
 
-  // Custom prompt template
+  // Custom prompt template - hidden from default config, shown in custom menu
   game.settings.register(MODULE_ID, 'promptTemplate', {
     name: 'PF2E_FAKE_ID.Settings.PromptTemplate.Name',
     hint: 'PF2E_FAKE_ID.Settings.PromptTemplate.Hint',
     scope: 'world',
-    config: true,
+    config: false, // Hidden from default menu, will use custom menu
     type: String,
     default: DEFAULT_PROMPT,
-    range: {
-      rows: 15,
-    },
   });
+
+  // Register custom settings menu for prompt template
+  game.settings.registerMenu(MODULE_ID, 'promptTemplateMenu', {
+    name: 'PF2E_FAKE_ID.Settings.PromptTemplate.Name',
+    label: 'PF2E_FAKE_ID.Settings.PromptTemplate.Button',
+    hint: 'PF2E_FAKE_ID.Settings.PromptTemplate.Hint',
+    icon: 'fas fa-edit',
+    type: PromptTemplateConfig,
+    restricted: true
+  });
+}
+
+/**
+ * Custom configuration form for the prompt template
+ */
+class PromptTemplateConfig extends FormApplication {
+  static get defaultOptions() {
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      title: game.i18n.localize('PF2E_FAKE_ID.Settings.PromptTemplate.Name'),
+      id: 'pf2e-fake-id-prompt-config',
+      template: 'modules/pf2e-fake-id/templates/prompt-config.html',
+      width: 720,
+      height: 600,
+      closeOnSubmit: true,
+      resizable: true
+    });
+  }
+
+  getData() {
+    return {
+      promptTemplate: getSetting('promptTemplate'),
+      defaultPrompt: DEFAULT_PROMPT
+    };
+  }
+
+  async _updateObject(event, formData) {
+    await setSetting('promptTemplate', formData.promptTemplate);
+    ui.notifications.info(game.i18n.localize('PF2E_FAKE_ID.Settings.PromptTemplate.Saved'));
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+    
+    html.find('button[name="reset"]').click(async (event) => {
+      event.preventDefault();
+      const textarea = html.find('textarea[name="promptTemplate"]');
+      textarea.val(DEFAULT_PROMPT);
+    });
+  }
 }
 
 /**
