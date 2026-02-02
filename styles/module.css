@@ -1,0 +1,216 @@
+/**
+ * PF2e Fake ID - Module Styles
+ */
+
+/* GM Whisper Message Container */
+.pf2e-fake-id-whisper {
+  background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
+  border: 2px solid #6b4c9a;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 4px 0;
+  color: #e8e8e8;
+  font-family: var(--font-primary);
+}
+
+/* Header Section */
+.pf2e-fake-id-whisper header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #6b4c9a;
+}
+
+.pf2e-fake-id-whisper header h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #c9a0dc;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.pf2e-fake-id-whisper header h3 i {
+  color: #9b59b6;
+}
+
+.pf2e-fake-id-whisper .creature-name {
+  background: #4a3366;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #f0e6f6;
+}
+
+.pf2e-fake-id-whisper .trigger-type {
+  background: #3d2a54;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: #b8a0c8;
+}
+
+/* Fake Info Content */
+.pf2e-fake-id-whisper .fake-info {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.pf2e-fake-id-whisper .fake-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.pf2e-fake-id-whisper .fake-info li {
+  margin-bottom: 8px;
+}
+
+.pf2e-fake-id-whisper .fake-info li:last-child {
+  margin-bottom: 0;
+}
+
+/* Loading State */
+.pf2e-fake-id-whisper .fake-info.loading {
+  text-align: center;
+  color: #b8a0c8;
+  font-style: italic;
+}
+
+.pf2e-fake-id-whisper .fake-info.loading i {
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Footer with Buttons */
+.pf2e-fake-id-whisper footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pf2e-fake-id-whisper footer button {
+  flex: 1;
+  min-width: 120px;
+  padding: 6px 12px;
+  border: 1px solid #6b4c9a;
+  border-radius: 4px;
+  background: #3d2a54;
+  color: #e8e8e8;
+  cursor: pointer;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.pf2e-fake-id-whisper footer button:hover {
+  background: #4a3366;
+  border-color: #9b59b6;
+}
+
+.pf2e-fake-id-whisper footer button:active {
+  background: #2d1b4e;
+}
+
+.pf2e-fake-id-whisper footer button i {
+  font-size: 0.9em;
+}
+
+/* Share to Player Button - Primary */
+.pf2e-fake-id-whisper footer button.share-to-player {
+  background: #4a3366;
+  border-color: #9b59b6;
+}
+
+.pf2e-fake-id-whisper footer button.share-to-player:hover {
+  background: #5c4080;
+}
+
+/* Regenerate Button */
+.pf2e-fake-id-whisper footer button.regenerate {
+  background: #2d3a4e;
+  border-color: #4a6b8a;
+}
+
+.pf2e-fake-id-whisper footer button.regenerate:hover {
+  background: #3d4a5e;
+}
+
+/* Disabled State */
+.pf2e-fake-id-whisper footer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Error State */
+.pf2e-fake-id-whisper .fake-info.error {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* Shared Info (visible to players) */
+.pf2e-fake-id-shared {
+  background: linear-gradient(135deg, #2d3a4e 0%, #1a2636 100%);
+  border: 2px solid #4a6b8a;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 4px 0;
+  color: #e8e8e8;
+}
+
+.pf2e-fake-id-shared header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #4a6b8a;
+}
+
+.pf2e-fake-id-shared header h3 {
+  margin: 0;
+  font-size: 1em;
+  color: #8ab4d4;
+}
+
+.pf2e-fake-id-shared .creature-name {
+  background: #3d4a5e;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.pf2e-fake-id-shared .recall-info {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  line-height: 1.5;
+}
+
+.pf2e-fake-id-shared .recall-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.pf2e-fake-id-shared .recall-info li {
+  margin-bottom: 8px;
+}
+
+.pf2e-fake-id-shared .recall-info li:last-child {
+  margin-bottom: 0;
+}

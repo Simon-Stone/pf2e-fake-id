@@ -1,0 +1,57 @@
+{{!--
+  PF2e Fake ID - Whisper Message Template
+  
+  This template is provided for reference but the actual HTML is built
+  in scripts/chat/whisper.js to allow for dynamic updates.
+  
+  Variables:
+  - creatureName: Name of the creature
+  - creatureId: ID of the creature actor
+  - triggerType: 'Manual' or 'Critical Failure'
+  - playerId: ID of the triggering player (if any)
+  - playerName: Name of the triggering player (if any)
+  - content: The generated fake information
+  - isLoading: Whether content is still loading
+  - isError: Whether there was an error
+--}}
+
+<div class="pf2e-fake-id-whisper" data-creature-id="{{creatureId}}" data-player-id="{{playerId}}">
+  <header>
+    <h3><i class="fas fa-mask"></i> {{localize "PF2E_FAKE_ID.Chat.Title"}}</h3>
+    <span class="creature-name">{{creatureName}}</span>
+    <span class="trigger-type">{{triggerType}}</span>
+  </header>
+  
+  {{#if isLoading}}
+  <div class="fake-info loading">
+    <i class="fas fa-spinner"></i>
+    {{localize "PF2E_FAKE_ID.Chat.GeneratingFor" name=creatureName}}
+  </div>
+  {{else if isError}}
+  <div class="fake-info error">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{content}}
+  </div>
+  {{else}}
+  <div class="fake-info">
+    {{{content}}}
+  </div>
+  {{/if}}
+  
+  <footer>
+    {{#if playerId}}
+    <button class="share-to-player" data-player-id="{{playerId}}" {{#if isLoading}}disabled{{/if}} {{#if isError}}disabled{{/if}}>
+      <i class="fas fa-share"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.ShareToPlayer" name=playerName}}
+    </button>
+    {{/if}}
+    <button class="share-to-all" {{#if isLoading}}disabled{{/if}} {{#if isError}}disabled{{/if}}>
+      <i class="fas fa-bullhorn"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.ShareToAll"}}
+    </button>
+    <button class="copy-to-clipboard" {{#if isLoading}}disabled{{/if}} {{#if isError}}disabled{{/if}}>
+      <i class="fas fa-copy"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.Copy"}}
+    </button>
+    <button class="regenerate" {{#if isLoading}}disabled{{/if}}>
+      <i class="fas fa-sync"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.Regenerate"}}
+    </button>
+  </footer>
+</div>

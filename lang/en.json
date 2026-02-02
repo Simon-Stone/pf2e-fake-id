@@ -1,0 +1,65 @@
+{
+  "PF2E_FAKE_ID": {
+    "ModuleTitle": "PF2e Fake ID",
+    
+    "Settings": {
+      "ApiEndpoint": {
+        "Name": "API Endpoint",
+        "Hint": "The base URL for the OpenAI-compatible API. Examples: https://api.openai.com/v1 (OpenAI), http://localhost:11434/v1 (Ollama)"
+      },
+      "ApiKey": {
+        "Name": "API Key",
+        "Hint": "Your API key. Leave empty for local models like Ollama that don't require authentication."
+      },
+      "Model": {
+        "Name": "Model",
+        "Hint": "The model to use for generation. Examples: gpt-4o-mini, gpt-4o, llama3.2, mistral"
+      },
+      "AutoTrigger": {
+        "Name": "Auto-trigger on Critical Failure",
+        "Hint": "Automatically generate fake information when a player critically fails a Recall Knowledge check."
+      },
+      "PromptTemplate": {
+        "Name": "Prompt Template",
+        "Hint": "The prompt template used to generate fake information. Use {{name}}, {{level}}, {{traits}}, {{weaknesses}}, {{resistances}}, {{immunities}}, {{abilities}} as placeholders."
+      }
+    },
+    
+    "ContextMenu": {
+      "GenerateFakeInfo": "Generate Fake Recall Knowledge"
+    },
+    
+    "Chat": {
+      "Title": "Fake Recall Knowledge",
+      "Creature": "Creature",
+      "TriggerType": {
+        "Manual": "Manual",
+        "CriticalFail": "Critical Failure"
+      },
+      "Buttons": {
+        "ShareToPlayer": "Share to {name}",
+        "ShareToAll": "Share to All",
+        "Regenerate": "Regenerate",
+        "Copy": "Copy to Clipboard"
+      },
+      "Generating": "Generating fake information...",
+      "GeneratingFor": "Generating fake information for {name}..."
+    },
+    
+    "Errors": {
+      "WrongSystem": "PF2e Fake ID requires the PF2e game system.",
+      "NoApiEndpoint": "No API endpoint configured. Please configure the module settings.",
+      "NoCreature": "No creature found to generate information for.",
+      "ApiError": "API Error: {error}",
+      "NetworkError": "Network error: Could not reach the API endpoint.",
+      "InvalidResponse": "Invalid response from the API.",
+      "NotGM": "Only the GM can use this feature."
+    },
+    
+    "Notifications": {
+      "Copied": "Fake information copied to clipboard.",
+      "Shared": "Fake information shared to chat.",
+      "Regenerating": "Regenerating fake information..."
+    }
+  }
+}
