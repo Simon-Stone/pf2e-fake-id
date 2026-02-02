@@ -203,8 +203,9 @@ function extractDescription(actor) {
   const privateNotes = actor.system?.details?.privateNotes ?? '';
   const blurb = actor.system?.details?.blurb ?? '';
   
-  // Combine and truncate to a reasonable length
-  let description = blurb || stripHtml(publicNotes).slice(0, 500);
+  // Prioritize the full narrative (publicNotes) over the brief tagline (blurb)
+  const strippedNotes = stripHtml(publicNotes);
+  let description = strippedNotes || blurb;
   
   return description;
 }
