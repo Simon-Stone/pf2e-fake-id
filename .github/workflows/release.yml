@@ -1,0 +1,47 @@
+name: Release Module
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+      - name: Update module.json version
+        run: |
+          sed -i 's/"version": "[^"]*"/"version": "${{ steps.version.outputs.version }}"/' module.json
+          sed -i 's|/download/v[^/]*/|/download/v${{ steps.version.outputs.version }}/|' module.json
+      
+      - name: Create module ZIP
+        run: |
+          zip -r pf2e-fake-id.zip \
+            module.json \
+            README.md \
+            lang/ \
+            scripts/ \
+            styles/ \
+            templates/ \
+            -x "*.DS_Store" \
+            -x "*.git*"
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            pf2e-fake-id.zip
+            module.json
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

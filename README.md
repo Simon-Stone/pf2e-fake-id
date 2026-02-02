@@ -19,14 +19,24 @@ A Foundry VTT module for the Pathfinder 2e system that generates plausible but i
 
 ## Installation
 
-### Method 1: Foundry Module Browser
+### Method 1: Manifest URL (Recommended for Cloud-Hosted Foundry)
+1. Open Foundry VTT
+2. Go to **Add-on Modules → Install Module**
+3. Paste this manifest URL:
+   ```
+   https://github.com/Simon-Stone/pf2e-fake-id/releases/latest/download/module.json
+   ```
+4. Click **Install**
+5. Enable the module in your world
+
+### Method 2: Foundry Module Browser
 1. Open Foundry VTT
 2. Go to Add-on Modules → Install Module
 3. Search for "PF2e Fake ID"
 4. Click Install
 
-### Method 2: Manual Installation
-1. Download the latest release
+### Method 3: Manual Installation
+1. Download the latest release ZIP from [GitHub Releases](https://github.com/Simon-Stone/pf2e-fake-id/releases)
 2. Extract to your `Data/modules/pf2e-fake-id` folder
 3. Restart Foundry VTT
 4. Enable the module in your world
