@@ -131,19 +131,21 @@ Hooks.on('renderTokenHUD', (hud, html, data) => {
   const token = hud.object;
   if (!token?.actor || token.actor.type !== 'npc') return;
   
-  // Create a button for the right column
-  const button = $(`
-    <div class="control-icon pf2e-fake-id-hud" title="${game.i18n.localize('PF2E_FAKE_ID.ContextMenu.GenerateFakeInfo')}">
-      <i class="fas fa-mask"></i>
-    </div>
-  `);
+  // Create a button for the right column using native DOM (Foundry v12+ compatibility)
+  const button = document.createElement('div');
+  button.className = 'control-icon pf2e-fake-id-hud';
+  button.title = game.i18n.localize('PF2E_FAKE_ID.ContextMenu.GenerateFakeInfo');
+  button.innerHTML = '<i class="fas fa-mask"></i>';
   
-  button.on('click', async (event) => {
+  button.addEventListener('click', async (event) => {
     event.preventDefault();
     event.stopPropagation();
     await onGenerateFakeInfo(token.actor);
   });
   
-  // Add to the right column
-  html.find('.col.right').append(button);
+  // Add to the right column (html is a native HTMLElement in Foundry v12+)
+  const rightColumn = html.querySelector('.col.right');
+  if (rightColumn) {
+    rightColumn.appendChild(button);
+  }
 });

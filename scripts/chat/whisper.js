@@ -245,10 +245,12 @@ export async function shareToChat(content, creatureName, whisperTo = []) {
  * Register click handlers for whisper message buttons
  */
 export function registerWhisperButtonHandlers() {
-  // Use event delegation on the chat log
-  $(document).on('click', '.pf2e-fake-id-whisper button', async (event) => {
+  // Use native event delegation on the document (Foundry v12+ compatibility)
+  document.addEventListener('click', async (event) => {
+    const button = event.target.closest('.pf2e-fake-id-whisper button');
+    if (!button) return;
+    
     event.preventDefault();
-    const button = event.currentTarget;
     const whisperEl = button.closest('.pf2e-fake-id-whisper');
     const messageEl = button.closest('.chat-message');
     
