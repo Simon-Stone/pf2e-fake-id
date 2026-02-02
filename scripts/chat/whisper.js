@@ -1,10 +1,11 @@
 /**
  * PF2e Fake ID - GM Whisper Message Handling
- * 
+ *
  * Creates and manages whisper messages to the GM.
  */
 
 import { MODULE_ID } from '../settings.js';
+import { parseMarkdown } from '../utils/markdown-parser.js';
 
 /**
  * Send a whisper message to the GM with fake creature information
@@ -137,8 +138,8 @@ function buildWhisperHTML(data) {
       </div>
     `;
   } else {
-    // Convert markdown-style bullets to HTML list
-    const formattedContent = formatContentAsHTML(content);
+    // Parse markdown content into Foundry-compatible HTML
+    const formattedContent = parseMarkdown(content);
     contentHTML = `
       <div class="fake-info">
         ${formattedContent}
@@ -181,35 +182,6 @@ function buildWhisperHTML(data) {
   `;
 }
 
-/**
- * Format plain text/markdown content as HTML
- */
-function formatContentAsHTML(content) {
-  if (!content) return '';
-  
-  // Split into lines and process
-  const lines = content.split('\n').filter(line => line.trim());
-  
-  // Check if content looks like a list
-  const isList = lines.every(line => 
-    line.trim().startsWith('•') || 
-    line.trim().startsWith('-') || 
-    line.trim().startsWith('*') ||
-    line.trim().match(/^\d+\./)
-  );
-  
-  if (isList) {
-    const items = lines.map(line => {
-      // Remove bullet characters
-      const text = line.trim().replace(/^[•\-\*]\s*/, '').replace(/^\d+\.\s*/, '');
-      return `<li>${text}</li>`;
-    });
-    return `<ul>${items.join('')}</ul>`;
-  }
-  
-  // Otherwise, treat as paragraphs
-  return lines.map(line => `<p>${line}</p>`).join('');
-}
 
 /**
  * Share fake information to chat (visible to players)
@@ -218,7 +190,7 @@ function formatContentAsHTML(content) {
  * @param {string[]} [whisperTo] - Array of user IDs to whisper to, or empty for public
  */
 export async function shareToChat(content, creatureName, whisperTo = []) {
-  const formattedContent = formatContentAsHTML(content);
+  const formattedContent = parseMarkdown(content);
   
   const htmlContent = `
     <div class="pf2e-fake-id-shared">

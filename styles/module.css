@@ -63,17 +63,110 @@
   line-height: 1.5;
 }
 
-.pf2e-fake-id-whisper .fake-info ul {
-  margin: 0;
-  padding-left: 20px;
+.pf2e-fake-id-whisper .fake-info ul,
+.pf2e-fake-id-whisper .fake-info ol {
+  margin: 8px 0;
+  padding-left: 24px;
 }
 
 .pf2e-fake-id-whisper .fake-info li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .pf2e-fake-id-whisper .fake-info li:last-child {
   margin-bottom: 0;
+}
+
+.pf2e-fake-id-whisper .fake-info p {
+  margin: 8px 0;
+}
+
+.pf2e-fake-id-whisper .fake-info p:first-child {
+  margin-top: 0;
+}
+
+.pf2e-fake-id-whisper .fake-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Markdown Headers */
+.pf2e-fake-id-whisper .fake-info h1,
+.pf2e-fake-id-whisper .fake-info h2,
+.pf2e-fake-id-whisper .fake-info h3,
+.pf2e-fake-id-whisper .fake-info h4,
+.pf2e-fake-id-whisper .fake-info h5,
+.pf2e-fake-id-whisper .fake-info h6 {
+  margin: 12px 0 8px 0;
+  color: #c9a0dc;
+  font-weight: bold;
+}
+
+.pf2e-fake-id-whisper .fake-info h1 { font-size: 1.4em; }
+.pf2e-fake-id-whisper .fake-info h2 { font-size: 1.3em; }
+.pf2e-fake-id-whisper .fake-info h3 { font-size: 1.2em; }
+.pf2e-fake-id-whisper .fake-info h4 { font-size: 1.1em; }
+.pf2e-fake-id-whisper .fake-info h5 { font-size: 1.05em; }
+.pf2e-fake-id-whisper .fake-info h6 { font-size: 1em; }
+
+/* Markdown Text Formatting */
+.pf2e-fake-id-whisper .fake-info strong {
+  font-weight: bold;
+  color: #f0e6f6;
+}
+
+.pf2e-fake-id-whisper .fake-info em {
+  font-style: italic;
+  color: #d8c8e8;
+}
+
+.pf2e-fake-id-whisper .fake-info code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: #9ecbff;
+}
+
+.pf2e-fake-id-whisper .fake-info pre {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.pf2e-fake-id-whisper .fake-info pre code {
+  background: none;
+  padding: 0;
+  color: #e8e8e8;
+}
+
+.pf2e-fake-id-whisper .fake-info a {
+  color: #8ab4d4;
+  text-decoration: underline;
+}
+
+.pf2e-fake-id-whisper .fake-info a:hover {
+  color: #a8d4f4;
+}
+
+/* PF2e-specific Elements */
+.pf2e-fake-id-whisper .fake-info .damage-type {
+  font-weight: 500;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background: rgba(255, 100, 100, 0.15);
+  color: #ff8888;
+}
+
+.pf2e-fake-id-whisper .fake-info .condition {
+  font-weight: 500;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background: rgba(255, 200, 100, 0.15);
+  color: #ffbb66;
+  border-bottom: 1px dotted rgba(255, 200, 100, 0.4);
 }
 
 /* Loading State */
@@ -202,17 +295,110 @@
   line-height: 1.5;
 }
 
-.pf2e-fake-id-shared .recall-info ul {
-  margin: 0;
-  padding-left: 20px;
+.pf2e-fake-id-shared .recall-info ul,
+.pf2e-fake-id-shared .recall-info ol {
+  margin: 8px 0;
+  padding-left: 24px;
 }
 
 .pf2e-fake-id-shared .recall-info li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .pf2e-fake-id-shared .recall-info li:last-child {
   margin-bottom: 0;
+}
+
+.pf2e-fake-id-shared .recall-info p {
+  margin: 8px 0;
+}
+
+.pf2e-fake-id-shared .recall-info p:first-child {
+  margin-top: 0;
+}
+
+.pf2e-fake-id-shared .recall-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Markdown Headers in Shared Messages */
+.pf2e-fake-id-shared .recall-info h1,
+.pf2e-fake-id-shared .recall-info h2,
+.pf2e-fake-id-shared .recall-info h3,
+.pf2e-fake-id-shared .recall-info h4,
+.pf2e-fake-id-shared .recall-info h5,
+.pf2e-fake-id-shared .recall-info h6 {
+  margin: 12px 0 8px 0;
+  color: #8ab4d4;
+  font-weight: bold;
+}
+
+.pf2e-fake-id-shared .recall-info h1 { font-size: 1.4em; }
+.pf2e-fake-id-shared .recall-info h2 { font-size: 1.3em; }
+.pf2e-fake-id-shared .recall-info h3 { font-size: 1.2em; }
+.pf2e-fake-id-shared .recall-info h4 { font-size: 1.1em; }
+.pf2e-fake-id-shared .recall-info h5 { font-size: 1.05em; }
+.pf2e-fake-id-shared .recall-info h6 { font-size: 1em; }
+
+/* Markdown Text Formatting in Shared Messages */
+.pf2e-fake-id-shared .recall-info strong {
+  font-weight: bold;
+  color: #f0f6ff;
+}
+
+.pf2e-fake-id-shared .recall-info em {
+  font-style: italic;
+  color: #d8e8f8;
+}
+
+.pf2e-fake-id-shared .recall-info code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: #9ecbff;
+}
+
+.pf2e-fake-id-shared .recall-info pre {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.pf2e-fake-id-shared .recall-info pre code {
+  background: none;
+  padding: 0;
+  color: #e8e8e8;
+}
+
+.pf2e-fake-id-shared .recall-info a {
+  color: #8ab4d4;
+  text-decoration: underline;
+}
+
+.pf2e-fake-id-shared .recall-info a:hover {
+  color: #a8d4f4;
+}
+
+/* PF2e-specific Elements in Shared Messages */
+.pf2e-fake-id-shared .recall-info .damage-type {
+  font-weight: 500;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background: rgba(255, 100, 100, 0.15);
+  color: #ff8888;
+}
+
+.pf2e-fake-id-shared .recall-info .condition {
+  font-weight: 500;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background: rgba(255, 200, 100, 0.15);
+  color: #ffbb66;
+  border-bottom: 1px dotted rgba(255, 200, 100, 0.4);
 }
 
 /* Sheet Button - Added to NPC Sheet RECALL KNOWLEDGE Section */

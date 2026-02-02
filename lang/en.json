@@ -21,7 +21,7 @@
       },
       "PromptTemplate": {
         "Name": "Prompt Template",
-        "Hint": "The prompt template used to generate fake information. Use {{name}}, {{level}}, {{traits}}, {{weaknesses}}, {{resistances}}, {{immunities}}, {{abilities}} as placeholders."
+        "Hint": "The prompt template used to generate fake information. Use {{name}}, {{level}}, {{traits}}, {{weaknesses}}, {{resistances}}, {{immunities}}, {{abilities}}, {{notes}} as placeholders."
       }
     },
     
