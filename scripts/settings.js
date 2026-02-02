@@ -23,7 +23,9 @@ Generate 2-3 pieces of FALSE information that:
 4. Match the tone of Pathfinder 2e lore
 
 Format your response as bullet points a GM could read aloud.
-Do not include any meta-commentary or disclaimers.`;
+Do not include any meta-commentary or disclaimers.
+All information should be in keeping with the terminology of the Remaster of the Second Edition of the Pathfinder Roleplaying Game.
+`;
 
 /**
  * Register all module settings
@@ -77,6 +79,9 @@ export function registerSettings() {
     config: true,
     type: String,
     default: DEFAULT_PROMPT,
+    range: {
+      rows: 15,
+    },
   });
 }
 
