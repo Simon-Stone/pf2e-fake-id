@@ -6,7 +6,7 @@ A Foundry VTT module for the Pathfinder 2e system that generates plausible but i
 
 - **LLM-Powered Generation**: Uses OpenAI-compatible APIs (OpenAI, Ollama, OpenRouter, etc.) to generate believable misinformation
 - **Automatic Triggers**: Automatically generates fake info when players critically fail Recall Knowledge checks
-- **Manual Generation**: Right-click any NPC token to manually generate fake information
+- **Manual Generation**: Button directly on NPC sheets in the Recall Knowledge section for easy access
 - **GM Whispers**: All generated content is whispered to the GM first for review
 - **Easy Sharing**: One-click buttons to share the fake info to specific players or everyone
 - **Customizable Prompts**: Modify the prompt template to suit your game's tone
@@ -90,12 +90,14 @@ When enabled, the module automatically detects when a player critically fails a 
 
 ### Manual Mode
 
-1. Select an NPC token on the canvas
-2. Right-click to open the context menu
-3. Select "Generate Fake Recall Knowledge"
+To manually generate fake information for any NPC:
+
+1. Open the NPC's actor sheet
+2. Look for the **Recall Knowledge** section
+3. Click the "Generate Fake Recall Knowledge" button next to "Attempts"
 4. The GM receives a whisper with generated false information
 
-Alternatively, use the mask icon (🎭) in the token HUD when an NPC is selected.
+The button appears directly in the sheet's Recall Knowledge section header for convenient access while reviewing creature information.
 
 ### Sharing Information
 

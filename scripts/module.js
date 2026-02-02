@@ -7,7 +7,7 @@
 
 import { registerSettings, MODULE_ID } from './settings.js';
 import { registerHooks } from './hooks.js';
-import { registerContextMenu } from './ui/context-menu.js';
+import { registerSheetButton } from './ui/sheet-button.js';
 
 // Initialize module
 Hooks.once('init', () => {
@@ -29,6 +29,6 @@ Hooks.once('ready', () => {
   // Register hooks for automatic triggers
   registerHooks();
   
-  // Register context menu for manual triggers
-  registerContextMenu();
+  // Register sheet button for manual triggers
+  registerSheetButton();
 });

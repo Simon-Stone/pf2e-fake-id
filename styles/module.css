@@ -214,3 +214,66 @@
 .pf2e-fake-id-shared .recall-info li:last-child {
   margin-bottom: 0;
 }
+
+/* Sheet Button - Added to NPC Sheet RECALL KNOWLEDGE Section */
+.pf2e-fake-id-sheet-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 3px 8px;
+  margin-left: 4px;
+  background: #5e0000;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.7em;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+  height: fit-content;
+  align-self: center;
+}
+
+.pf2e-fake-id-sheet-button:hover {
+  background: #7a0000;
+  box-shadow: 0 0 6px rgba(94, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.pf2e-fake-id-sheet-button:active {
+  background: #4a0000;
+  transform: scale(0.98);
+}
+
+.pf2e-fake-id-sheet-button i {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.pf2e-fake-id-sheet-button span {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Responsive: Hide button text on smaller screens, show icon only */
+@media (max-width: 900px) {
+  .pf2e-fake-id-sheet-button span {
+    display: none;
+  }
+  
+  .pf2e-fake-id-sheet-button {
+    padding: 3px 6px;
+    margin-left: 3px;
+    min-width: 24px;
+  }
+  
+  .pf2e-fake-id-sheet-button i {
+    margin: 0;
+  }
+}
