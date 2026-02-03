@@ -427,6 +427,8 @@
   flex: 0 0 auto !important;
   margin: 0 !important;
   margin-left: 4px !important;
+  width: auto !important;
+  max-width: fit-content !important;
 }
 
 /* Sheet Button - Added to NPC Sheet RECALL KNOWLEDGE Section */
@@ -453,6 +455,9 @@
   height: fit-content;
   align-self: center;
   vertical-align: middle;
+  width: auto;
+  max-width: fit-content;
+  flex-shrink: 0;
 }
 
 .pf2e-fake-id-sheet-button:hover {
