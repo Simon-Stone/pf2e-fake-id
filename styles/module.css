@@ -424,6 +424,7 @@
   line-height: 1.2;
   height: fit-content;
   align-self: center;
+  vertical-align: middle;
 }
 
 .pf2e-fake-id-sheet-button:hover {
