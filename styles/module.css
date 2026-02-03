@@ -482,6 +482,7 @@
   flex-direction: column;
   padding: 8px;
   overflow: auto !important;
+  min-width: 0;
 }
 
 .pf2e-fake-id-prompt-config {
@@ -490,10 +491,14 @@
   gap: 16px;
   flex: 1 1 auto;
   min-height: 0;
+  min-width: 0;
+  width: 100%;
 }
 
 .pf2e-fake-id-prompt-config .form-group {
   flex-shrink: 0;
+  min-width: 0;
+  width: 100%;
 }
 
 .pf2e-fake-id-prompt-config .form-group:first-child {
@@ -502,6 +507,8 @@
   gap: 8px;
   flex: 1 1 auto;
   min-height: 200px;
+  min-width: 0;
+  width: 100%;
 }
 
 .pf2e-fake-id-prompt-config label {
