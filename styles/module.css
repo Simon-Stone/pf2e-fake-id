@@ -482,6 +482,7 @@
   flex-direction: column;
   padding: 8px;
   overflow: auto !important;
+  min-width: 0;
 }
 
 .pf2e-fake-id-prompt-config {
@@ -490,10 +491,14 @@
   gap: 16px;
   flex: 1 1 auto;
   min-height: 0;
+  min-width: 0;
+  width: 100%;
 }
 
 .pf2e-fake-id-prompt-config .form-group {
   flex-shrink: 0;
+  min-width: 0;
+  width: 100%;
 }
 
 .pf2e-fake-id-prompt-config .form-group:first-child {
@@ -502,21 +507,34 @@
   gap: 8px;
   flex: 1 1 auto;
   min-height: 200px;
+  min-width: 0;
+  width: 100%;
 }
 
 .pf2e-fake-id-prompt-config label {
   font-weight: bold;
   font-size: 1.1em;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
 }
 
 .pf2e-fake-id-prompt-config .notes {
   font-size: 0.9em;
   color: var(--color-text-dark-secondary);
   margin: 0;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  display: block !important;
 }
 
 .pf2e-fake-id-prompt-config textarea {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9em;
   padding: 8px;
@@ -526,8 +544,10 @@
   color: var(--color-text-dark-primary, #191813);
   resize: vertical;
   min-height: 300px;
-  width: 100%;
-  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
 }
 
 .pf2e-fake-id-prompt-config textarea:focus {
