@@ -2,15 +2,15 @@
   <div class="form-group">
     <label>{{localize "PF2E_FAKE_ID.Settings.PromptTemplate.Label"}}</label>
     <p class="notes">{{localize "PF2E_FAKE_ID.Settings.PromptTemplate.Hint"}}</p>
-    <textarea name="promptTemplate" rows="20" style="font-family: monospace; width: 100%; resize: vertical;">{{promptTemplate}}</textarea>
+    <textarea name="promptTemplate" rows="20" style="font-family: monospace; width: 100%; resize: vertical;">{{{promptTemplate}}}</textarea>
   </div>
   
   <div class="form-group">
     <p class="notes">
       <strong>{{localize "PF2E_FAKE_ID.Settings.PromptTemplate.AvailableVariables"}}</strong><br>
-      <code>{{name}}</code>, <code>{{level}}</code>, <code>{{traits}}</code>, 
-      <code>{{weaknesses}}</code>, <code>{{resistances}}</code>, <code>{{immunities}}</code>, 
-      <code>{{abilities}}</code>, <code>{{notes}}</code>
+      <code>\{{name}}</code>, <code>\{{level}}</code>, <code>\{{traits}}</code>,
+      <code>\{{weaknesses}}</code>, <code>\{{resistances}}</code>, <code>\{{immunities}}</code>,
+      <code>\{{abilities}}</code>, <code>\{{notes}}</code>
     </p>
   </div>
   

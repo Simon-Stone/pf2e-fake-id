@@ -462,6 +462,11 @@
   gap: 8px;
 }
 
+.pf2e-fake-id-prompt-config .form-group:first-child {
+  flex: 1;
+  min-height: 0;
+}
+
 .pf2e-fake-id-prompt-config label {
   font-weight: bold;
   font-size: 1.1em;
@@ -474,15 +479,18 @@
 }
 
 .pf2e-fake-id-prompt-config textarea {
+  flex: 1;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9em;
   padding: 8px;
-  border: 1px solid var(--color-border-dark);
+  border: 1px solid var(--color-border-dark, #7a7971);
   border-radius: 4px;
-  background: var(--color-bg-input);
-  color: var(--color-text-dark-primary);
+  background: var(--color-bg-input, #fff);
+  color: var(--color-text-dark-primary, #191813);
   resize: vertical;
-  min-height: 300px;
+  min-height: 200px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .pf2e-fake-id-prompt-config textarea:focus {
