@@ -401,6 +401,34 @@
   border-bottom: 1px dotted rgba(255, 200, 100, 0.4);
 }
 
+/* Recall Knowledge Section Header - Keep everything on one row */
+/* Target NPC sheet specifically with higher specificity */
+.sheet.actor.npc .recall-knowledge .section-header,
+.actor.npc .recall-knowledge .section-header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+
+.sheet.actor.npc .recall-knowledge .section-header h4,
+.actor.npc .recall-knowledge .section-header h4 {
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+}
+
+/* Group buttons on the right side */
+.sheet.actor.npc .recall-knowledge .section-header .breakdown,
+.actor.npc .recall-knowledge .section-header .breakdown,
+.sheet.actor.npc .recall-knowledge .section-header .pf2e-fake-id-sheet-button,
+.actor.npc .recall-knowledge .section-header .pf2e-fake-id-sheet-button {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  margin-left: 4px !important;
+}
+
 /* Sheet Button - Added to NPC Sheet RECALL KNOWLEDGE Section */
 .pf2e-fake-id-sheet-button {
   display: inline-flex;
