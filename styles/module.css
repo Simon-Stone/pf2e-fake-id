@@ -449,17 +449,32 @@
 }
 
 /* Prompt Template Configuration Form */
+#pf2e-fake-id-prompt-config .window-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
 .pf2e-fake-id-prompt-config {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .pf2e-fake-id-prompt-config .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-shrink: 0;
+}
+
+.pf2e-fake-id-prompt-config .form-group:first-child {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .pf2e-fake-id-prompt-config label {
@@ -474,15 +489,20 @@
 }
 
 .pf2e-fake-id-prompt-config textarea {
+  flex: 1;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9em;
   padding: 8px;
-  border: 1px solid var(--color-border-dark);
+  border: 1px solid var(--color-border-dark, #7a7971);
   border-radius: 4px;
-  background: var(--color-bg-input);
-  color: var(--color-text-dark-primary);
+  background: var(--color-bg-input, #fff);
+  color: var(--color-text-dark-primary, #191813);
   resize: vertical;
-  min-height: 300px;
+  min-height: 150px;
+  max-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .pf2e-fake-id-prompt-config textarea:focus {
