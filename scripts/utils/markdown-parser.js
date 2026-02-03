@@ -26,7 +26,7 @@ export function parseMarkdown(content) {
   html = parseBold(html);
   html = parseItalic(html);
   html = parseLinks(html);
-  html = parsePF2eSpecialTerms(html);
+  // html = parsePF2eSpecialTerms(html); // Disabled - only convert markdown formatting, don't add extra emphasis
   
   return html;
 }
