@@ -50,6 +50,31 @@ export function registerSettings() {
     scope: 'world',
     config: true,
     type: String,
+    // Custom input to render a password field, hiding the API key value
+    input: (field, config) => {
+      const input = document.createElement('input');
+      input.type = 'password';
+      // Apply standard configuration from FormInputConfig
+      input.name = config.name;
+      input.value = config.value ?? '';
+      if (config.placeholder) input.placeholder = config.placeholder;
+      if (config.disabled) input.disabled = true;
+      if (config.readonly) input.readOnly = true;
+      if (config.required) input.required = true;
+      if (config.autofocus) input.autofocus = true;
+      if (config.classes) input.className = config.classes;
+      if (config.dataset) {
+        Object.entries(config.dataset).forEach(([k, v]) => {
+          input.dataset[k] = v;
+        });
+      }
+      if (config.aria) {
+        Object.entries(config.aria).forEach(([k, v]) => {
+          input.setAttribute(`aria-${k}`, v);
+        });
+      }
+      return input;
+    },
     default: '',
   });
 
