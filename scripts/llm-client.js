@@ -43,7 +43,7 @@ export class LLMClient {
       model: model,
       messages: messages,
       temperature: 0.8,
-      max_tokens: 500
+      max_tokens: 1024
     };
 
     const headers = {
