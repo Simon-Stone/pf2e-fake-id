@@ -63,16 +63,6 @@ export function registerSettings() {
     default: 'gpt-4o-mini',
   });
 
-  // Auto-trigger on critical failure
-  game.settings.register(MODULE_ID, 'autoTrigger', {
-    name: 'PF2E_FAKE_ID.Settings.AutoTrigger.Name',
-    hint: 'PF2E_FAKE_ID.Settings.AutoTrigger.Hint',
-    scope: 'world',
-    config: true,
-    type: Boolean,
-    default: true,
-  });
-
   // Custom prompt template - hidden from default config, shown in custom menu
   game.settings.register(MODULE_ID, 'promptTemplate', {
     name: 'PF2E_FAKE_ID.Settings.PromptTemplate.Name',

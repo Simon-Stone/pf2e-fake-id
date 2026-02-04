@@ -1,7 +1,7 @@
 /**
  * PF2e Fake ID - Sheet Button Integration
- * 
- * Adds button to NPC sheets for manual fake info generation.
+ *
+ * Adds button to NPC sheets for fake info generation.
  */
 
 import { MODULE_ID } from '../settings.js';
@@ -149,11 +149,7 @@ async function onGenerateFakeInfo(actor) {
   }
   
   try {
-    await generateFakeInfo(actor, {
-      triggerType: 'manual',
-      playerId: null,
-      playerName: null
-    });
+    await generateFakeInfo(actor);
   } catch (error) {
     console.error(`${MODULE_ID} | Failed to generate fake info:`, error);
     ui.notifications.error(error.message);

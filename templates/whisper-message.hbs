@@ -7,19 +7,15 @@
   Variables:
   - creatureName: Name of the creature
   - creatureId: ID of the creature actor
-  - triggerType: 'Manual' or 'Critical Failure'
-  - playerId: ID of the triggering player (if any)
-  - playerName: Name of the triggering player (if any)
   - content: The generated fake information
   - isLoading: Whether content is still loading
   - isError: Whether there was an error
 --}}
 
-<div class="pf2e-fake-id-whisper" data-creature-id="{{creatureId}}" data-player-id="{{playerId}}">
+<div class="pf2e-fake-id-whisper" data-creature-id="{{creatureId}}">
   <header>
     <h3><i class="fas fa-mask"></i> {{localize "PF2E_FAKE_ID.Chat.Title"}}</h3>
     <span class="creature-name">{{creatureName}}</span>
-    <span class="trigger-type">{{triggerType}}</span>
   </header>
   
   {{#if isLoading}}
@@ -39,14 +35,6 @@
   {{/if}}
   
   <footer>
-    {{#if playerId}}
-    <button class="share-to-player" data-player-id="{{playerId}}" {{#if isLoading}}disabled{{/if}} {{#if isError}}disabled{{/if}}>
-      <i class="fas fa-share"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.ShareToPlayer" name=playerName}}
-    </button>
-    {{/if}}
-    <button class="share-to-all" {{#if isLoading}}disabled{{/if}} {{#if isError}}disabled{{/if}}>
-      <i class="fas fa-bullhorn"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.ShareToAll"}}
-    </button>
     <button class="copy-to-clipboard" {{#if isLoading}}disabled{{/if}} {{#if isError}}disabled{{/if}}>
       <i class="fas fa-copy"></i> {{localize "PF2E_FAKE_ID.Chat.Buttons.Copy"}}
     </button>

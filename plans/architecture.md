@@ -242,7 +242,6 @@ Add option to token HUD or right-click context menu:
   <header>
     <h3><i class="fas fa-mask"></i> Fake Recall Knowledge</h3>
     <span class="creature-name">{{creatureName}}</span>
-    <span class="trigger-type">{{triggerType}}</span>
   </header>
   
   <div class="fake-info">
@@ -250,9 +249,6 @@ Add option to token HUD or right-click context menu:
   </div>
   
   <footer>
-    <button class="share-to-player" data-player-id="{{playerId}}">
-      <i class="fas fa-share"></i> Share to {{playerName}}
-    </button>
     <button class="share-to-all">
       <i class="fas fa-bullhorn"></i> Share to All
     </button>
@@ -274,7 +270,6 @@ Add option to token HUD or right-click context menu:
 | `apiEndpoint` | world | string | "https://api.openai.com/v1" | OpenAI-compatible API endpoint |
 | `apiKey` | world | string | "" | API key (optional for local models) |
 | `model` | world | string | "gpt-4o-mini" | Model name |
-| `autoTrigger` | world | boolean | true | Auto-trigger on crit fail |
 | `promptTemplate` | world | string | (default) | Customizable prompt |
 
 ---

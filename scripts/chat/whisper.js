@@ -12,9 +12,6 @@ import { parseMarkdown } from '../utils/markdown-parser.js';
  * @param {Object} data - Message data
  * @param {string} data.creatureName - Name of the creature
  * @param {string} data.creatureId - ID of the creature actor
- * @param {string} data.triggerType - 'manual' or 'critical-fail'
- * @param {string} [data.playerId] - ID of the triggering player
- * @param {string} [data.playerName] - Name of the triggering player
  * @param {string} [data.content] - The generated fake information
  * @param {boolean} [data.isLoading] - Whether content is still loading
  * @returns {Promise<string>} The created message ID
@@ -23,23 +20,13 @@ export async function sendGMWhisper(data) {
   const {
     creatureName,
     creatureId,
-    triggerType,
-    playerId = null,
-    playerName = null,
     content = null,
     isLoading = false
   } = data;
 
-  const triggerLabel = triggerType === 'critical-fail' 
-    ? game.i18n.localize('PF2E_FAKE_ID.Chat.TriggerType.CriticalFail')
-    : game.i18n.localize('PF2E_FAKE_ID.Chat.TriggerType.Manual');
-
   const htmlContent = buildWhisperHTML({
     creatureName,
     creatureId,
-    triggerType: triggerLabel,
-    playerId,
-    playerName,
     content,
     isLoading,
     isError: false
@@ -54,9 +41,6 @@ export async function sendGMWhisper(data) {
       [MODULE_ID]: {
         creatureId,
         creatureName,
-        triggerType,
-        playerId,
-        playerName,
         fakeContent: content
       }
     }
@@ -80,16 +64,9 @@ export async function updateWhisperContent(messageId, updates) {
   const flags = message.flags[MODULE_ID] || {};
   const { content, isLoading = false, isError = false } = updates;
 
-  const triggerLabel = flags.triggerType === 'critical-fail'
-    ? game.i18n.localize('PF2E_FAKE_ID.Chat.TriggerType.CriticalFail')
-    : game.i18n.localize('PF2E_FAKE_ID.Chat.TriggerType.Manual');
-
   const htmlContent = buildWhisperHTML({
     creatureName: flags.creatureName,
     creatureId: flags.creatureId,
-    triggerType: triggerLabel,
-    playerId: flags.playerId,
-    playerName: flags.playerName,
     content,
     isLoading,
     isError
@@ -113,9 +90,6 @@ function buildWhisperHTML(data) {
   const {
     creatureName,
     creatureId,
-    triggerType,
-    playerId,
-    playerName,
     content,
     isLoading,
     isError
@@ -147,30 +121,16 @@ function buildWhisperHTML(data) {
     `;
   }
 
-  // Build share button text
-  const shareToPlayerText = playerName 
-    ? game.i18n.format('PF2E_FAKE_ID.Chat.Buttons.ShareToPlayer', { name: playerName })
-    : game.i18n.localize('PF2E_FAKE_ID.Chat.Buttons.ShareToAll');
-
   return `
-    <div class="pf2e-fake-id-whisper" data-creature-id="${creatureId}" data-player-id="${playerId || ''}">
+    <div class="pf2e-fake-id-whisper" data-creature-id="${creatureId}">
       <header>
         <h3><i class="fas fa-mask"></i> ${game.i18n.localize('PF2E_FAKE_ID.Chat.Title')}</h3>
         <span class="creature-name">${creatureName}</span>
-        <span class="trigger-type">${triggerType}</span>
       </header>
       
       ${contentHTML}
       
       <footer>
-        ${playerId ? `
-          <button class="share-to-player" data-player-id="${playerId}" ${isLoading || isError ? 'disabled' : ''}>
-            <i class="fas fa-share"></i> ${shareToPlayerText}
-          </button>
-        ` : ''}
-        <button class="share-to-all" ${isLoading || isError ? 'disabled' : ''}>
-          <i class="fas fa-bullhorn"></i> ${game.i18n.localize('PF2E_FAKE_ID.Chat.Buttons.ShareToAll')}
-        </button>
         <button class="copy-to-clipboard" ${isLoading || isError ? 'disabled' : ''}>
           <i class="fas fa-copy"></i> ${game.i18n.localize('PF2E_FAKE_ID.Chat.Buttons.Copy')}
         </button>
@@ -182,36 +142,6 @@ function buildWhisperHTML(data) {
   `;
 }
 
-
-/**
- * Share fake information to chat (visible to players)
- * @param {string} content - The fake information to share
- * @param {string} creatureName - The creature name
- * @param {string[]} [whisperTo] - Array of user IDs to whisper to, or empty for public
- */
-export async function shareToChat(content, creatureName, whisperTo = []) {
-  const formattedContent = parseMarkdown(content);
-  
-  const htmlContent = `
-    <div class="pf2e-fake-id-shared">
-      <header>
-        <h3><i class="fas fa-book"></i> ${game.i18n.localize('PF2E_FAKE_ID.Chat.Title')}</h3>
-        <span class="creature-name">${creatureName}</span>
-      </header>
-      <div class="recall-info">
-        ${formattedContent}
-      </div>
-    </div>
-  `;
-
-  await ChatMessage.create({
-    content: htmlContent,
-    whisper: whisperTo,
-    speaker: { alias: game.i18n.localize('PF2E_FAKE_ID.Chat.Title') }
-  });
-
-  ui.notifications.info(game.i18n.localize('PF2E_FAKE_ID.Notifications.Shared'));
-}
 
 /**
  * Register click handlers for whisper message buttons
@@ -237,16 +167,7 @@ export function registerWhisperButtonHandlers() {
     const fakeContent = flags.fakeContent;
     const creatureName = flags.creatureName;
 
-    if (button.classList.contains('share-to-player')) {
-      const playerId = button.dataset.playerId;
-      if (fakeContent && playerId) {
-        await shareToChat(fakeContent, creatureName, [playerId]);
-      }
-    } else if (button.classList.contains('share-to-all')) {
-      if (fakeContent) {
-        await shareToChat(fakeContent, creatureName, []);
-      }
-    } else if (button.classList.contains('copy-to-clipboard')) {
+    if (button.classList.contains('copy-to-clipboard')) {
       if (fakeContent) {
         await navigator.clipboard.writeText(fakeContent);
         ui.notifications.info(game.i18n.localize('PF2E_FAKE_ID.Notifications.Copied'));
@@ -254,11 +175,7 @@ export function registerWhisperButtonHandlers() {
     } else if (button.classList.contains('regenerate')) {
       // Import dynamically to avoid circular dependency
       const { regenerateFakeInfo } = await import('../generation/generator.js');
-      await regenerateFakeInfo(messageId, creatureId, {
-        triggerType: flags.triggerType,
-        playerId: flags.playerId,
-        playerName: flags.playerName
-      });
+      await regenerateFakeInfo(messageId, creatureId);
     }
   });
 }

@@ -13,19 +13,9 @@ import { sendGMWhisper, updateWhisperContent } from '../chat/whisper.js';
 /**
  * Generate fake information for a creature
  * @param {Actor} actor - The PF2e creature actor
- * @param {Object} options - Generation options
- * @param {string} options.triggerType - 'manual' or 'critical-fail'
- * @param {string} [options.playerId] - ID of the player who triggered (for crit fail)
- * @param {string} [options.playerName] - Name of the player who triggered
  * @returns {Promise<string>} The generated fake information
  */
-export async function generateFakeInfo(actor, options = {}) {
-  const {
-    triggerType = 'manual',
-    playerId = null,
-    playerName = null
-  } = options;
-
+export async function generateFakeInfo(actor) {
   if (!actor || actor.type !== 'npc') {
     throw new Error(game.i18n.localize('PF2E_FAKE_ID.Errors.NoCreature'));
   }
@@ -44,9 +34,6 @@ export async function generateFakeInfo(actor, options = {}) {
   const messageId = await sendGMWhisper({
     creatureName: actor.name,
     creatureId: actor.id,
-    triggerType,
-    playerId,
-    playerName,
     content: null, // null indicates loading state
     isLoading: true
   });
@@ -90,10 +77,9 @@ export async function generateFakeInfo(actor, options = {}) {
  * Regenerate fake information for an existing whisper message
  * @param {string} messageId - The chat message ID
  * @param {string} actorId - The creature actor ID
- * @param {Object} options - Options from the original generation
  * @returns {Promise<string>} The new fake information
  */
-export async function regenerateFakeInfo(messageId, actorId, options = {}) {
+export async function regenerateFakeInfo(messageId, actorId) {
   const actor = game.actors.get(actorId);
   
   if (!actor) {
