@@ -94,7 +94,7 @@ To manually generate fake information for any NPC:
 
 1. Open the NPC's actor sheet
 2. Look for the **Recall Knowledge** section
-3. Click the "Generate Fake Recall Knowledge" button next to "Attempts"
+3. Click the "✨ Fake Fact" button next to "Attempts"
 4. The GM receives a whisper with generated false information
 
 The button appears directly in the sheet's Recall Knowledge section header for convenient access while reviewing creature information.

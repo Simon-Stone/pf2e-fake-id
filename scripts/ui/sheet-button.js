@@ -104,7 +104,7 @@ function createSheetButton(actor) {
   const buttonTitle = buttonText;
   
   const button = $(`
-    <button class="pf2e-fake-id-sheet-button"
+    <button class="breakdown"
             type="button"
             title="${buttonTitle}">
       <i class="fas fa-sparkles"></i>

@@ -32,7 +32,7 @@
     },
     
     "Chat": {
-      "Title": "Fake Recall Knowledge",
+      "Title": "Fake Fact",
       "Creature": "Creature",
       "Buttons": {
         "Regenerate": "Regenerate",

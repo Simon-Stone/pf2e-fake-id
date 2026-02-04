@@ -124,7 +124,7 @@ function buildWhisperHTML(data) {
   return `
     <div class="pf2e-fake-id-whisper" data-creature-id="${creatureId}">
       <header>
-        <h3><i class="fas fa-mask"></i> ${game.i18n.localize('PF2E_FAKE_ID.Chat.Title')}</h3>
+        <h3><i class="fas fa-sparkles"></i> ${game.i18n.localize('PF2E_FAKE_ID.Chat.Title')}</h3>
         <span class="creature-name">${creatureName}</span>
       </header>
       
