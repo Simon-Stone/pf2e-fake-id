@@ -1,19 +1,19 @@
 # PF2e Fake ID
 
+![PF2e Fake ID](assets/pf2e-fake-id-logo.png)
+
 A Foundry VTT module for the Pathfinder 2e system that generates plausible but incorrect creature information using LLM integration. Perfect for handling critical failures on Recall Knowledge checks!
 
 ## Features
 
 - **LLM-Powered Generation**: Uses OpenAI-compatible APIs (OpenAI, Ollama, OpenRouter, etc.) to generate believable misinformation
-- **Automatic Triggers**: Automatically generates fake info when players critically fail Recall Knowledge checks
 - **Manual Generation**: Button directly on NPC sheets in the Recall Knowledge section for easy access
-- **GM Whispers**: All generated content is whispered to the GM first for review
-- **Easy Sharing**: One-click buttons to share the fake info to specific players or everyone
+- **GM Whispers**: All generated content is whispered to the GM for review
 - **Customizable Prompts**: Modify the prompt template to suit your game's tone
 
 ## Requirements
 
-- Foundry VTT v12 or later
+- Foundry VTT v13 or later
 - PF2e System v6.0.0 or later
 - An OpenAI-compatible API endpoint (OpenAI, Ollama, etc.)
 
@@ -79,17 +79,6 @@ Model: anthropic/claude-3-haiku
 
 ## Usage
 
-### Automatic Mode (Default)
-
-When enabled, the module automatically detects when a player critically fails a Recall Knowledge check:
-
-1. Player targets a creature
-2. Player attempts Recall Knowledge and critically fails
-3. The GM receives a whisper with generated false information
-4. GM can review and share the info with the player
-
-### Manual Mode
-
 To manually generate fake information for any NPC:
 
 1. Open the NPC's actor sheet
@@ -99,14 +88,7 @@ To manually generate fake information for any NPC:
 
 The button appears directly in the sheet's Recall Knowledge section header for convenient access while reviewing creature information.
 
-### Sharing Information
-
-When you receive a fake info whisper, you have several options:
-
-- **Share to Player**: Sends the fake info only to the player who failed the check
-- **Share to All**: Broadcasts the fake info to the entire chat
-- **Copy**: Copies the text to your clipboard for manual sharing
-- **Regenerate**: Generate new fake information for the same creature
+![Example](assets/demo.gif)
 
 ## Customizing the Prompt
 
@@ -121,6 +103,7 @@ You can customize the prompt template in the module settings. Available placehol
 | `{{resistances}}` | Known resistances |
 | `{{immunities}}` | Known immunities |
 | `{{abilities}}` | Notable abilities and attacks |
+| `{{notes}}`| Narrative description of the creature |
 
 ### Example Custom Prompt
 
@@ -133,10 +116,9 @@ Make them sound believable but tactically misleading.
 
 ## Tips for GMs
 
-1. **Review before sharing**: Always read the generated content first to ensure it fits your game
+1. **Review the content**: Always read the generated content first to ensure it fits your game
 2. **Adjust the severity**: The default prompt generates tactically misleading info. Modify it for more or less impactful misinformation
-3. **Regenerate freely**: If the first result doesn't fit, just regenerate
-4. **Combine with roleplay**: Embellish the fake info with NPC delivery for extra immersion
+3. **Combine with roleplay**: Embellish the fake info with NPC delivery for extra immersion
 
 ## Troubleshooting
 
@@ -151,10 +133,6 @@ Make sure you've set up the API Endpoint in module settings.
 ### "Invalid response"
 The API returned unexpected data. Check your model name is correct.
 
-### Module doesn't detect Recall Knowledge
-The detection relies on PF2e system flags. Ensure you're:
-- Using the Recall Knowledge action from the compendium
-- Targeting a creature before rolling
 
 ## License
 
